@@ -10,10 +10,26 @@ import (
 )
 
 func solve(reader io.Reader, writer io.Writer) {
-    
-    // your code goes here
+
 	t, _ := strconv.Atoi(readLine(reader))
-	fmt.Fprintf(writer, "%d\n", t)
+
+	for t > 0 {
+
+		nStr := readLine(reader)
+		n, _ := strconv.Atoi(nStr)
+
+		var sum int
+		for _, dStr := range nStr {
+			d, _ := strconv.Atoi(string(dStr))
+			if d != 0 && n%d == 0 {
+				sum++
+			}
+		}
+
+		fmt.Fprintf(writer, "%d\n", sum)
+
+		t--
+	}
 }
 
 func main() {
