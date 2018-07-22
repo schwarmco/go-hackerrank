@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-type Customer struct {
+type customer struct {
 	ID          int
 	OrderNumber int
 	PrepTime    int
@@ -21,13 +21,13 @@ func solve(reader io.Reader, writer io.Writer) {
 
 	n, _ := strconv.Atoi(readLine(reader))
 
-	c := make([]Customer, n)
+	c := make([]customer, n)
 
 	for i := 0; i < n; i++ {
 		op := strings.Split(readLine(reader), " ")
 		o, _ := strconv.Atoi(op[0])
 		p, _ := strconv.Atoi(op[1])
-		c[i] = Customer{i + 1, o, p, o + p}
+		c[i] = customer{i + 1, o, p, o + p}
 	}
 
 	sort.Slice(c, func(i, j int) bool {
